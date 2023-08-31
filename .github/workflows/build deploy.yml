@@ -13,10 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up test.html
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
+
 
     - name: Install dependencies
       run: npm install
@@ -28,7 +25,7 @@ jobs:
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws s3 sync <build-directory> s3://<testsfirst> --delete
+        aws s3 sync <build-directory> s3://{{testsfirst}} --delete
       env:
         AWS_DEFAULT_REGION: us-west-1
 
