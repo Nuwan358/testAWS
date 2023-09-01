@@ -23,8 +23,6 @@ jobs:
       - name: Clone repository
         run: git clone https://github.com/Nuwan358/testAWS.git
 
-      - name: Deploy to S3
-        run: |
-          aws s3 sync ./your-repo s3://	testsfirst --delete
+      
 
 
